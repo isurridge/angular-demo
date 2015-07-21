@@ -1,0 +1,92 @@
+/* app css stylesheet */
+
+.menu {
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
+}
+
+.menu:before {
+    content: "[";
+}
+
+.menu:after {
+    content: "]";
+}
+
+.menu > li {
+    display: inline;
+}
+
+.menu > li:before {
+    content: "|";
+    padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+    content: "";
+    padding: 0;
+}
+
+[ng-cloak] {
+    display: none;
+}
+
+body {
+    background-color: #000;
+    margin: auto 50px;
+}
+
+.captionLable {
+    position: relative;
+    color: #fff;
+}
+
+.captionContent {
+    float: left;
+    max-width: 150px;
+    margin: 10px;
+    overflow-wrap: break-word;
+}
+
+.photoContainer {
+    height: 250px;
+    width: 150px;
+}
+
+.container {
+    display: inline-block;
+    margin: auto auto;
+}
+
+.photoContainerOutside {
+    margin: 10px;
+    min-width: 250px;
+}
+
+h1 {
+    color: #fff;
+}
+
+.view2Container {
+    position: relative;
+
+}
+
+.view2Poster {
+    float: left;
+    width: 400px;
+
+}
+
+.imageMargin {
+    height: 550px;
+    width: 350px;
+}
+
+.imageMarginLabel {
+    color: #fff;
+    float: left;
+    width: 550px;
+}

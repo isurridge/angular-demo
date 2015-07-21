@@ -1,0 +1,18 @@
+<div class="view2Container">
+    <div ng-click="description(i.id)" class="view2Poster"><img
+            src="http://image.tmdb.org/t/p/original/{{list.poster_path}}?api_key=1bf0ee332fc7b032ae03582ee854cf55"
+            class="imageMargin"></div>
+    <div class="imageMarginLabel">
+        <h2>
+            {{list.title}}
+        </h2>
+
+        <p>
+            {{list.overview}}
+        </p>
+
+        <p>
+            Release Date: {{list.release_date}}
+        </p>
+    </div>
+</div>
