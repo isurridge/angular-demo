@@ -9,9 +9,9 @@ This is a fork of [Angular Seed](https://github.com/angular/angular-seed) but wi
 
 
 
-## Running
+## To start app:
 
 node expressServer.js
 
-
+and go to:
 http://localhost:3000/
