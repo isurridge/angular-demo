@@ -63,6 +63,7 @@ body {
 .photoContainerOutside {
     margin: 10px;
     min-width: 250px;
+    cursor: pointer;
 }
 
 h1 {
