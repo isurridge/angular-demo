@@ -41,6 +41,7 @@ body {
 .captionLable {
     position: relative;
     color: #fff;
+
 }
 
 .captionContent {
@@ -48,19 +49,19 @@ body {
     max-width: 150px;
     margin: 10px;
     overflow-wrap: break-word;
+    text-shadow: 1px 1px #000;
 }
 
 .photoContainer {
     height: 250px;
     width: 150px;
-    opacity: 1;
-    filter:alpha(opacity=100);
+
 }
 
 .container {
     display: inline-block;
     margin: auto auto;
-    z-index: 1;
+    position: relative;
 }
 
 
@@ -91,15 +92,25 @@ h1 {
     width: 550px;
 }
 
-#background {
-
+.background {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;
+    margin: auto auto;
+    background-position: center;
+    -webkit-filter: grayscale(0%);
+ }
+
+.background img {
+    border: 1px solid #fff;
 }
+
 
 .photoContainerOutside {
     margin: 10px;
     min-width: 250px;
     cursor: pointer;
+    filter: none;
+    -webkit-filter: grayscale(0);
+
 }
