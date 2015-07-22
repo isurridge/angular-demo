@@ -53,18 +53,17 @@ body {
 .photoContainer {
     height: 250px;
     width: 150px;
+    opacity: 1;
+    filter:alpha(opacity=100);
 }
 
 .container {
     display: inline-block;
     margin: auto auto;
+    z-index: 1;
 }
 
-.photoContainerOutside {
-    margin: 10px;
-    min-width: 250px;
-    cursor: pointer;
-}
+
 
 h1 {
     color: #fff;
@@ -90,4 +89,17 @@ h1 {
     color: #fff;
     float: left;
     width: 550px;
+}
+
+#background {
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+.photoContainerOutside {
+    margin: 10px;
+    min-width: 250px;
+    cursor: pointer;
 }

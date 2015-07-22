@@ -1,4 +1,6 @@
-<div style="background-image: url(http://image.tmdb.org/t/p/original/{{list[12].backdrop_path}}?api_key=1bf0ee332fc7b032ae03582ee854cf55); margin: auto auto">
+<div id="background"
+     style="background-image: url(http://image.tmdb.org/t/p/original/{{list[12].backdrop_path}}?api_key=1bf0ee332fc7b032ae03582ee854cf55); margin: auto auto;">
+
     <div class="container" ng-repeat="i in list  | filter:{poster_path: ''}">
 
         <div class="photoContainerOutside">
@@ -8,9 +10,10 @@
 
         </div>
         <div class="captionLable">
-        <div class="captionContent">{{i.title}} <br> Opens: {{i.release_date}}</div>
+            <div class="captionContent">{{i.title}} <br> Opens: {{i.release_date}}</div>
 
         </div>
 
     </div>
+
 </div>
