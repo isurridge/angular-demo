@@ -1,0 +1,18 @@
+<div *ngFor="let stat of (status); let i = index; let x = count;">
+  <div class="card" *ngIf="stat.title === statusType">
+    <div class="card-header">
+      {{stat.title}}
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let type of (stat.data)">
+          <td>{{type.label}}</td>
+          <td>{{type.name}}</td>
+          <td>{{type.value}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

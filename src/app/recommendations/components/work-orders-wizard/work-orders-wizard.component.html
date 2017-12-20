@@ -1,0 +1,98 @@
+<div class="row justify-content-center wizard-form">
+  <div class="col-lg-12 col-lg-8">
+    <wizard>
+
+      <wizard-step stepTitle="Alarms List">
+        <div class="card card-list">
+          <div class="card-header">
+            <h4 class="card-title">Alarms List</h4>
+            <h6 class="card-subtitle mb-2 text-muted float-left">Select an alarm from the list to approve
+              recommendation</h6>
+            <div class="card-subtitle mb-2 text-muted float-right">
+              <label class="form-check-label">
+                <input type="checkbox" [(ngModel)]="showWorkOrderAlarms">
+                Show Work Order Alarms
+              </label>
+            </div>
+          </div>
+
+          <div class="list-group list-group-flush">
+            <div *ngFor="let alarm of rows; let i = index">
+              <button type="button"
+                      [ngClass]="{'active': alarm.active}"
+                      [disabled]="alarm.workOrderNumber"
+                      *ngIf="!alarm.workOrderNumber || showWorkOrderAlarms"
+                      (click)="selectAlarm(alarm); current = i;"
+                      class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
+                <strong>{{alarm.alarmDetail}}</strong>
+                <span class="badge badge-pill {{alarm.alarmCount | alarmCountClass}}">{{alarm.alarmCount}}</span>
+              </button>
+              <div class="list-group" class="collapse hide" [class.collapse]='current != i'>
+                <div *ngFor="let detail of alarm.children; let index = index" class="border border-primary border-bottom-1 border-left-0 border-right-0 border-top-0">
+                  <div class="d-flex w-100 pl-5 p-1">
+                    <small>ID: {{detail.id}}</small>
+                  </div>
+                  <div class="d-flex w-100 pl-5 p-1">
+                    <small>Recommending: {{detail.recommendation}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button type="button" nextStep [disabled]="!selectedAlarm.alarmDetail"
+                    class="btn btn-secondary float-right">Next &raquo;
+            </button>
+          </div>
+        </div>
+      </wizard-step>
+
+      <wizard-step stepTitle="Recommendations">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">{{selectedAlarm.alarmDetail}}</h4>
+            <h6 class="card-subtitle mb-2 text-muted float-left">Approve recommendation</h6>
+          </div>
+          <div class="card-body">
+            <p>
+              Recommend <strong>{{selectedAlarm.recommendation}}</strong>
+              for {{selectedAlarm.siteAddress}}, {{selectedAlarm.state}}
+              via <strong>{{selectedAlarm.actionType}}</strong>.
+            </p>
+            <button class="btn btn-light"
+                    popover="{{selectedAlarm.explanation}}"
+                    [outsideClick]="true">Why?
+            </button>
+          </div>
+          <div class="card-footer">
+            <button type="button" previousStep class="btn btn-outline-secondary">&laquo; Back</button>
+            <button type="button" nextStep class="btn btn-secondary float-right">Approve &raquo;</button>
+          </div>
+        </div>
+      </wizard-step>
+
+      <wizard-step stepTitle="Confirm">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Summary</h4>
+          </div>
+          <div class="card-body">
+            <p>
+              Recommended <strong>{{selectedAlarm.recommendation}}</strong>
+              via <strong>{{selectedAlarm.actionType}}</strong>.
+            </p>
+            <p>
+              <a href="#" (click)="print()" class="btn btn-light">Print</a>
+              <a href="mailto:example@sherlock-jci.com" class="btn btn-light">Share</a>
+            </p>
+          </div>
+          <div class="card-footer">
+            <button type="button" previousStep class="btn btn-outline-secondary">&laquo; Back</button>
+            <button type="button" (click)="finishFunction()" class="btn btn-success float-right">Confirm</button>
+          </div>
+        </div>
+      </wizard-step>
+
+    </wizard>
+  </div>
+</div>

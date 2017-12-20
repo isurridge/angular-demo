@@ -1,10 +1,11 @@
-# AngularDemo
+# Sherlock
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
 
-## Development server
+## Development servers
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1) Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+2) Next open a new terminal and run `npm run rest-api`. A proxy server will run on port `localhost:8090` and will catch all `\api` calls.
 
 ## Code scaffolding
 
@@ -25,3 +26,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Installing dependencies
+
+To install Yarn: https://yarnpkg.com/en/docs/install
+
+Run `yarn`  to install all packages in package.json. (we are no longer using npm install)
+
+* Please be sure to delete the 'node_modules' directory in your project, if one exists in your project before running Yarn.

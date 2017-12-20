@@ -1,0 +1,23 @@
+<div class="sidebar">
+  <nav class="sidebar-nav navbar-collapse">
+    <div class="brand justify-content-center">
+      <img src="assets/images/logo.png" />
+    </div>
+    <ul class="nav">
+      <li class="nav-item" *ngFor="let route of routes">
+        <a class="nav-link" [routerLink]="[route.path]" [routerLinkActive]="['active']">
+          <i class="material-icons md-18" aria-hidden="true">{{route.data.materialIcon}}</i>
+          <span>{{route.data.label}}</span>
+        </a>
+      </li>
+      <li class="divider"></li>
+      <li class="divider"></li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="[loginUrl]">
+          <i class="material-icons md-18">exit_to_app</i>
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

@@ -1,0 +1,24 @@
+<header class="app-header navbar">
+  <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <ul *ngIf="showBackButton" class="nav navbar-nav d-md-down-none">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="[homeUrl]">&larr; Back to summary</a>
+    </li>
+  </ul>
+  <div class="nav navbar-nav ml-auto btn-group navbar-add-icon" dropdown placement="bottom right">
+    <div class="nav-item">
+      <i class="material-icons text-muted" dropdownToggle>control_point</i>
+      <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+        <li role="menuitem"><a [routerLink]="['/dashboard/recommendations']" class="dropdown-item">Add Work Order</a></li>
+        <li role="menuitem"><a [routerLink]="['/dashboard/reports']" class="dropdown-item">Add Add Report</a></li>
+        <li role="menuitem"><a [routerLink]="['/dashboard/users']" class="dropdown-item">Add User</a></li>
+      </ul>
+    </div>
+  </div>
+</header>

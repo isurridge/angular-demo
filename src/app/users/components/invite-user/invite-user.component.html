@@ -1,0 +1,34 @@
+<button class="btn btn-secondary" #inviteHandle="bs-popover"
+        [popover]="invite" placement="right">Invite User</button>
+<ng-template #invite>
+  <form [formGroup]="inviteUsersForm">
+    <fieldset>
+      <div class="row">
+        <div class="col-7">
+          <div class="form-group">
+            <label for="invite-user-email">Email</label>
+            <input type="text" formControlName="email" id="invite-user-email" class="form-control" placeholder="example@domain.com" />
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="form-group">
+            <label>Role</label>
+            <div dropdown class="dropdown">
+              <button dropdownToggle class="btn btn-secondary btn-block dropdown-toggle" type="button">{{selectedRoleName}}</button>
+              <ul *dropdownMenu class="dropdown-menu" >
+                <li *ngFor="let role of roleMap | ngForObject">
+                  <a (click)="setRole(role.key)" class="dropdown-item" href="javascript:;">{{role.value}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button (click)="submit(inviteUsersForm.value); inviteHandle.hide()" [disabled]="!inviteUsersForm.valid || selectedRoleId === null" class="btn btn-block btn-success">Send</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</ng-template>

@@ -1,0 +1,11 @@
+form.ng-touched input.ng-touched.ng-invalid {
+  border: 1px solid red;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.auth-form {
+  margin-top: 160px;
+}

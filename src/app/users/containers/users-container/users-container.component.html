@@ -1,0 +1,4 @@
+<div class="users">
+  <app-users-datatable [rows]="users$ | async" (onUserDeactivate)="removeUserRow($event)"></app-users-datatable>
+  <app-invite-user (onUserInvite)="appendUserRow($event)"></app-invite-user>
+</div>

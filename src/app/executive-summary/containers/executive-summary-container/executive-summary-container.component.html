@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <app-executive-summary-health-meter [meter]="meter$ | async"></app-executive-summary-health-meter>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
+      <app-filters-panel
+        [filterOptions]="filterOptions"
+        [filterSelections]="filters"
+        (applyFiltersClick)="applyFilterEvent($event)">
+      </app-filters-panel>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <app-executive-summary-line-chart [options]="options$ | async"></app-executive-summary-line-chart>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <app-executive-summary-status-tables
+        [status]="status$ | async"
+        statusType="Progress"></app-executive-summary-status-tables>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <app-executive-summary-status-tables
+        [status]="status$ | async"
+        statusType="Work Orders"></app-executive-summary-status-tables>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <app-executive-summary-status-tables
+        [status]="status$ | async"
+        statusType="Forecast"></app-executive-summary-status-tables>
+    </div>
+  </div>
+</div>

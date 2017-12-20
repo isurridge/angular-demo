@@ -1,0 +1,136 @@
+<div class="card">
+  <div class="card-body">
+    <small>
+      <a href="javascript:void(0)" (click)="table.rowDetail.expandAllRows()">Expand All</a> |
+      <a href="javascript:void(0)" (click)="table.rowDetail.collapseAllRows()">Collapse All</a>
+    </small>
+
+    <ngx-datatable
+      #myTable
+      class="expandable"
+      [columnMode]="'force'"
+      [headerHeight]="50"
+      [footerHeight]="100"
+      [rowHeight]="50"
+      [rows]="rows"
+    >
+
+      <!-- Row Detail Template -->
+      <ngx-datatable-row-detail [rowHeight]="100" #myDetailRow>
+        <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+          <div style="padding-left:35px;">
+            <div><strong>Address</strong></div>
+            <div>{{row.address.city}}, {{row.address.state}}</div>
+          </div>
+        </ng-template>
+      </ngx-datatable-row-detail>
+      <!-- Column Templates -->
+      <ngx-datatable-column
+        [width]="50"
+        [resizeable]="true"
+        [sortable]="false"
+        [draggable]="false"
+        [canAutoResize]="false">
+        <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+          <a
+            href="javascript:void(0)"
+            [class.datatable-icon-right]="!expanded"
+            [class.datatable-icon-down]="expanded"
+            title="Expand/Collapse Row"
+            (click)="toggleExpandRow(row)">
+          </a>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="ticket" width="80">
+        <ng-template let-rowIndex="ticket" let-row="row" ngx-datatable-cell-template>
+          {{row.ticket}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="status" width="200">
+        <ng-template let-value="status" let-row="row" ngx-datatable-cell-template>
+          {{row.status}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="siteAddress" width="300">
+        <ng-template let-value="siteAddress" let-row="row" ngx-datatable-cell-template>
+          {{row.siteAddress}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="state" width="300">
+        <ng-template let-value="state" let-row="row" ngx-datatable-cell-template>
+          {{row.state}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="openDate" width="300">
+        <ng-template let-value="openDate" let-row="row" ngx-datatable-cell-template>
+          {{row.openDate}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="requestedDate" width="300">
+        <ng-template let-value="requestedDate" let-row="row" ngx-datatable-cell-template>
+          {{row.requestedDate}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="closedDate" width="300">
+        <ng-template let-value="closedDate" let-row="row" ngx-datatable-cell-template>
+          {{row.closedDate}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="alarmCount" width="300">
+        <ng-template let-value="alarmCount" let-row="row" ngx-datatable-cell-template>
+          {{row.alarmCount}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="alarmDetail" width="300">
+        <ng-template let-value="alarmDetail" let-row="row" ngx-datatable-cell-template>
+          {{row.alarmDetail}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="recommendation" width="300">
+        <ng-template let-value="recommendation" let-row="row" ngx-datatable-cell-template>
+          {{row.recommendation}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="actionType" width="300">
+        <ng-template let-value="actionType" let-row="row" ngx-datatable-cell-template>
+          {{row.actionType}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-footer>
+        <ng-template
+          ngx-datatable-footer-template
+          let-rowCount="rowCount"
+          let-pageSize="pageSize"
+          let-selectedCount="selectedCount"
+          let-curPage="curPage"
+          let-offset="offset">
+          <div style="padding: 5px 10px">
+            <div>
+              <strong>Summary</strong>: Gender: Female
+            </div>
+            <div>
+              Rows: {{rowCount}} |
+              Size: {{pageSize}}
+            </div>
+          </div>
+          <datatable-pager
+            [pagerLeftArrowIcon]="'datatable-icon-left'"
+            [pagerRightArrowIcon]="'datatable-icon-right'"
+            [pagerPreviousIcon]="'datatable-icon-prev'"
+            [pagerNextIcon]="'datatable-icon-skip'"
+            [page]="curPage"
+            [size]="pageSize"
+            [count]="rowCount"
+            [hidden]="!((rowCount / pageSize) > 1)"
+            (change)="myTable.onFooterPage($event)">
+          </datatable-pager>
+        </ng-template>
+      </ngx-datatable-footer>
+    </ngx-datatable>
+  </div>
+</div>
+

@@ -1,0 +1,114 @@
+<form [formGroup]="filterForm" (ngSubmit)="submit(filterForm.value)" novalidate>
+  <div class="animated fadeIn">
+    <div class="filter-ui-form">
+      <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2" *ngIf="filterOptions.dateRange">
+          <label for="id-date">Date</label>
+          <input id="id-date" class="form-control"
+                 daterangepicker
+                 [options]="datePickerOptions"
+                 (selected)="selectedDate($event, filterForm.value.selectedDateRange)"
+                 formControlName="selectedDateRange" />
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2" *ngIf="filterOptions.statusSelect">
+          <label for="id-status">Status</label>
+          <ng-select
+            id="id-status"
+            notFoundMsg="Status not found"
+            [options]="statuses"
+            [multiple]="true"
+            formControlName="selectedStatus">
+          </ng-select>
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2" *ngIf="filterOptions.ticketNumber">
+          <label for="id-ticket-no">Ticket No.</label>
+          <input id="id-ticket-no" class="form-control" formControlName="ticketNumber" maxlength="6">
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2" *ngIf="filterOptions.policeDispatch">
+          <label for="id-police-dispatch">Police Dispatch</label>
+          <ng-select
+            id="id-police-dispatch"
+            [options]="policeDispatchBoolOptions"
+            formControlName="selectedPoliceDispatchBool">
+          </ng-select>
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2" *ngIf="filterOptions.stateSelect">
+          <label for="id-state">State</label>
+          <ng-select
+            id="id-state"
+            placeholder="Filter by State"
+            notFoundMsg="State not found"
+            [options]="states"
+            [multiple]="true"
+            formControlName="selectedStates">
+          </ng-select>
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2" *ngIf="filterOptions.citySelect">
+          <label for="id-city">City</label>
+          <ng-select
+            id="id-city"
+            placeholder="Filter by City"
+            notFoundMsg="City not found"
+            [options]="cities"
+            [multiple]="true"
+            formControlName="selectedCities">
+          </ng-select>
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2" *ngIf="filterOptions.storeNumber">
+          <label for="id-store-no">Store No.</label>
+          <input id="id-store-no" class="form-control" formControlName="storeNumber" maxlength="6">
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2" *ngIf="filterOptions.alarmTypesSelect">
+          <label for="id-alarms">Alarm Types</label>
+          <ng-select
+            id="id-alarms"
+            [options]="alarms"
+            [multiple]="true"
+            formControlName="selectedAlarms">
+          </ng-select>
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2" *ngIf="filterOptions.recommendationsSelect">
+          <label for="id-recommendations">Recommendations</label>
+          <ng-select
+            id="id-recommendations"
+            [options]="recommendations"
+            [multiple]="true"
+            formControlName="selectedRecommendations">
+          </ng-select>
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2" *ngIf="filterOptions.actionSelect">
+          <label for="id-actions">Action Types</label>
+          <ng-select
+            id="id-actions"
+            [options]="actions"
+            [multiple]="true"
+            formControlName="selectedActions">
+          </ng-select>
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2" *ngIf="filterOptions.requestedDate">
+          <label for="id-requested-date">Requested Date</label>
+          <input id="id-requested-date" class="form-control"
+                 daterangepicker
+                 [options]="datePickerOptions"
+                 (selected)="selectedDate($event, filterForm.value.selectedRequestedDate)"
+                 formControlName="selectedRequestedDate" />
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 ml-auto clearfix">
+          <button type="submit" class="btn btn-success float-right">Apply</button>
+          <button type="reset" (click)="clearFilters()" class="btn btn-secondary float-right">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

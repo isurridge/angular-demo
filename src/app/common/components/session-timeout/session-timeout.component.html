@@ -1,0 +1,14 @@
+<div *ngIf="modalVisible" [config]="{show:true,backdrop:'static'}" class="modal fade" bsModal #sessionExpirationModal="bs-modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p>Your session is about to expire.</p>
+      </div>
+      <div class="modal-body text-center">
+        <p>{{countdown | date:'s'}} seconds remain.</p>
+        <button class="btn btn-success btn-block" (click)="extendSession()">Extend</button>
+        <button class="btn btn-danger btn-block" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+</div>

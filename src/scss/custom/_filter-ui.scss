@@ -1,0 +1,53 @@
+.filter-ui-form ng-select > div {
+  border: 1px solid #c2cfd6;
+  min-height: 35px;
+}
+
+.filter-ui-form {
+  padding: 10px 10px 25px 10px;
+  margin-bottom: 20px;
+  background-color: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.125);
+}
+
+.filter-ui-form .row {
+  margin: 0;
+}
+.filter-ui-form .row > * {
+  padding: 0 5px 0 5px;
+}
+
+.filter-ui-form input {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+.filter-ui-form label {
+  color: #666;
+  font-size: 0.85rem;
+  margin: 15px 0 3px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.filter-ui-form ng-select {
+  background-color: #fff;
+}
+
+.filter-ui-form input {
+  width:100%;
+  height: 36px;
+  outline: none!important;
+}
+
+#id-date:focus,
+#id-store-no:focus {
+  border-color: #0088CC;
+  box-shadow: none!important;
+  outline: 0 none!important;
+}
+
+.filter-ui-form button {
+  margin: 10px 0 0 10px;
+}

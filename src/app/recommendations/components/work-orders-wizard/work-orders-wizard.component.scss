@@ -1,0 +1,25 @@
+.wizard-form {
+  margin-top: 40px;
+}
+
+.wizard-form .card {
+  margin: 40px 0;
+}
+
+.wizard-form .form-check-label {
+  font-weight: 500;
+}
+
+.wizard-form .card-list .card-footer {
+  border-top: 0;
+}
+
+.help-icon {
+  cursor: pointer;
+}
+
+.list-group-item.disabled,
+.list-group-item:disabled {
+  background-color: #fcfcfc;
+  color:#ccc;
+}

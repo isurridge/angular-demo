@@ -1,0 +1,29 @@
+.sidenav {
+  min-height: 100%;
+}
+
+.sidenav .brand {
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+  margin-bottom: 15px;
+}
+
+.sidenav .brand img {
+  padding: 10px 0;
+  display: block;
+  margin: 0 auto;
+}
+
+.sidenav .nav .nav-item {
+  cursor: pointer;
+}
+
+.sidenav .nav .nav-link > span {
+  position: relative;
+  bottom: 5px;
+}
+
+.sidenav .nav-link {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}

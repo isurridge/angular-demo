@@ -1,0 +1,5 @@
+<app-filters-panel
+  [filterOptions]="filterOptions"
+  (applyFiltersClick)="applyFilterEvent($event)"
+></app-filters-panel>
+<app-work-orders-datatable [rows]="rows$ | async"></app-work-orders-datatable>

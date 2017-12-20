@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-body">
+    <ngx-datatable class="table expandable" [rows]="rows" [rowHeight]="50" [columnMode]="'force'">
+      <ngx-datatable-column name="Email" [width]="200" [sortable]="false" [draggable]="false">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          {{value}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Status" [width]="200" [sortable]="false" [draggable]="false">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          {{value | userStatus}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Role" [width]="50" [sortable]="false" [draggable]="false">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div dropdown class="dropdown">
+            <button dropdownToggle class="btn btn-secondary dropdown-toggle" type="button">
+              {{value | userRole}}
+            </button>
+            <ul *dropdownMenu class="dropdown-menu" >
+              <li><a class="dropdown-item" href="#">User</a></li>
+              <li><a class="dropdown-item" href="#">Admin</a></li>
+              <li><a class="dropdown-item" href="#">Super User</a></li>
+              <li><a class="dropdown-item" href="#">Super Admin</a></li>
+            </ul>
+          </div>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column [width]="50" [sortable]="false" [draggable]="false">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <app-delete-user [user]="row" (onUserDeactivate)="deactivateUser($event)"></app-delete-user>
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+</div>
