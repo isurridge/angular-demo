@@ -54,4 +54,4 @@ COPY --from=builder /ng-app/dist /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
 
 
-RUN npm run rest-api
+#RUN npm run rest-api
