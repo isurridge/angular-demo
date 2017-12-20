@@ -16,7 +16,7 @@
 
 ### STAGE 1: Build ###
 
-FROM alpine:3.4
+FROM ubuntu
 
 # We label our stage as 'builder'
 FROM node:8-alpine as builder
