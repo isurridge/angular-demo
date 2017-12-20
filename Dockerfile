@@ -32,6 +32,8 @@ WORKDIR /ng-app
 COPY . .
 
 ## Build the angular app in production mode and store the artifacts in dist folder
+RUN npm i
+
 RUN npm start
 
 
