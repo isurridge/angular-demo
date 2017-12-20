@@ -36,7 +36,7 @@ COPY . .
 RUN $(npm bin)/ng build --prod --build-optimizer
 
 
-RUN $(npm bin)/npm run rest-api
+RUN npm run rest-api
 
 
 ### STAGE 2: Setup ###
