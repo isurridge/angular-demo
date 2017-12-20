@@ -1,40 +1,33 @@
-/* global module */
-"use strict";
+// Karma configuration file, see link for more information
+// https://karma-runner.github.io/1.0/config/configuration-file.html
 
-module.exports = function(config){
+module.exports = function (config) {
   config.set({
-
-    basePath : './',
-
-    files : [
-      {pattern: 'app/bower_components/angular/angular.js', included: false},
-      {pattern: 'app/bower_components/angular-route/angular-route.js', included: false},
-      {pattern: 'app/bower_components/angular-mocks/angular-mocks.js', included: false},
-      {pattern: 'app/components/**/*.js', included: false},
-      {pattern: 'app/view*/**/*.js', included: false},
-      {pattern: 'app/app.js', included: false},
-      // needs to be last http://karma-runner.github.io/0.12/plus/requirejs.html
-      'app/require-config.js'
+    basePath: '',
+    frameworks: ['jasmine', '@angular/cli'],
+    plugins: [
+      require('karma-jasmine'),
+      require('karma-chrome-launcher'),
+      require('karma-jasmine-html-reporter'),
+      require('karma-coverage-istanbul-reporter'),
+      require('@angular/cli/plugins/karma')
     ],
-
-    autoWatch : true,
-
-    frameworks: ['jasmine', 'requirejs'],
-
-    browsers : ['Chrome'],
-
-    plugins : [
-            'karma-chrome-launcher',
-            'karma-firefox-launcher',
-            'karma-jasmine',
-            'karma-requirejs',
-            'karma-junit-reporter'
-            ],
-
-    junitReporter : {
-      outputFile: 'test_out/unit.xml',
-      suite: 'unit'
-    }
-
+    client:{
+      clearContext: false // leave Jasmine Spec Runner output visible in browser
+    },
+    coverageIstanbulReporter: {
+      reports: [ 'html', 'lcovonly' ],
+      fixWebpackSourcePaths: true
+    },
+    angularCli: {
+      environment: 'dev'
+    },
+    reporters: ['progress', 'kjhtml'],
+    port: 9876,
+    colors: true,
+    logLevel: config.LOG_INFO,
+    autoWatch: true,
+    browsers: ['Chrome'],
+    singleRun: false
   });
 };
