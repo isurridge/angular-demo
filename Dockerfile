@@ -32,7 +32,7 @@ COPY . .
 
 ## Build the angular app in production mode and store the artifacts in dist folder
 EXPOSE 8090
-CMD [ "npm", "start" ]
+CMD [ "npm", "run rest-api" ]
 
 RUN $(npm bin)/ng build --prod --build-optimizer
 
