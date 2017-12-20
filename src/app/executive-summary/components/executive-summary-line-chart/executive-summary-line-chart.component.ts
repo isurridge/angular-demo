@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class ExecutiveSummaryLineChartComponent{
 
   @Input() options: any;
-  // view: any[] = [1024, 480];
+  view: any[];
   showXAxis = true;
   showYAxis = true;
   gradient = true;
