@@ -31,7 +31,7 @@ WORKDIR /ng-app
 COPY . .
 
 ## Build the angular app in production mode and store the artifacts in dist folder
-EXPOSE 8080
+EXPOSE 8090
 CMD [ "npm", "start" ]
 
 RUN $(npm bin)/ng build --prod --build-optimizer
@@ -54,5 +54,3 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY --from=builder /ng-app/dist /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
 
-
-#RUN npm run rest-api
