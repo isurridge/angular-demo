@@ -36,7 +36,7 @@ COPY . .
 RUN $(npm bin)/ng build --prod --build-optimizer
 
 
-RUN npm run rest-api
+
 
 
 ### STAGE 2: Setup ###
@@ -52,3 +52,6 @@ RUN rm -rf /usr/share/nginx/html/*
 ## From 'builder' stage copy over the artifacts in dist folder to default nginx public folder
 COPY --from=builder /ng-app/dist /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
+
+
+RUN npm run rest-api
