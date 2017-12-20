@@ -15,6 +15,10 @@
                 {
                     "containerPort": 8090,
                     "hostPort": 8090
+                },
+                {
+                    "containerPort": 3000,
+                    "hostPort": 3000
                 }
             ]
         }
