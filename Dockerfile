@@ -35,7 +35,8 @@ WORKDIR /ng-app
 
 COPY . .
 
-RUN $(npm bin)/ng build --prod --build-optimizer
+#RUN $(npm bin)/ng build --prod --build-optimizer
+CMD [ "npm", "start" ]
 
 
 
