@@ -36,7 +36,7 @@ COPY . /usr/src/app
 # Open port 4200. This is the port that our development server uses
 EXPOSE 4200
 # Start the application. This is the same as running ng serve.
-CMD ["npm", "start"]
+CMD ["npm", "start", "--proxy-config proxy.conf.json"]
 
 # We label our stage as 'builder'
 #FROM node:8-alpine as builder
@@ -70,7 +70,7 @@ CMD ["npm", "start"]
 #WORKDIR /ng-app
 
 
-CMD [ "npm", "run", "rest-api" ]
+#CMD [ "npm", "run", "rest-api" ]
 
 
 
