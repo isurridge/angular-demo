@@ -37,7 +37,7 @@ EXPOSE 8090
 CMD [ "npm", "run rest-api" ]
 
 #RUN $(npm bin)/ng build --prod --build-optimizer
-RUN $(npm bin)/ng build --proxy-config proxy.conf.json
+RUN $(npm bin)/ng serve --proxy-config proxy.conf.json
 
 
 
