@@ -36,7 +36,7 @@ WORKDIR /ng-app
 COPY . .
 
 #RUN $(npm bin)/ng build --prod --build-optimizer
-RUN $(npm bin)/ng serve  --proxy-config proxy.conf.json
+CMD ["ng serve",  "--proxy-config proxy.conf.json"]
 
 
 
