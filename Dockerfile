@@ -18,7 +18,6 @@
 
 FROM ubuntu
 
-EXPOSE 4200 3000 8090 80 8080
 
 
 #  Create a new image from the base nodejs 7 image.
@@ -34,9 +33,11 @@ RUN npm install
 # Copy the client application source files. You can use .dockerignore to exlcude files. Works just as .gitignore does.
 COPY . /usr/src/app
 # Open port 4200. This is the port that our development server uses
-EXPOSE 4200
+
+EXPOSE 4200 3000 8090 80 8080
+
 # Start the application. This is the same as running ng serve.
-CMD ["npm", "start", "--proxy-config proxy.conf.json"]
+CMD ["npm", "start"]
 
 # We label our stage as 'builder'
 #FROM node:8-alpine as builder
