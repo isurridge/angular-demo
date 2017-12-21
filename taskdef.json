@@ -1,9 +1,9 @@
 {
-    "family": "hello-world",
+    "family": "sherlock-ui",
     "containerDefinitions": [
         {
             "image": "%REPOSITORY_URI%:v_%BUILD_NUMBER%",
-            "name": "hello-world",
+            "name": "sherlock-ui",
             "cpu": 10,
             "memory": 256,
             "essential": true,
@@ -11,14 +11,6 @@
                 {
                     "containerPort": 80,
                     "hostPort": 80
-                },
-                {
-                    "containerPort": 8090,
-                    "hostPort": 8090
-                },
-                {
-                    "containerPort": 3000,
-                    "hostPort": 3000
                 }
             ]
         }
