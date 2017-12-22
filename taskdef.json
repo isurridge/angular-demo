@@ -1,9 +1,9 @@
 {
-  "family": "sherlock-ui",
+  "family": "sherlock",
   "containerDefinitions": [
     {
       "image": "%REPOSITORY_URI%:v_%BUILD_NUMBER%",
-      "name": "sherlock-ui",
+      "name": "sherlock",
       "cpu": 10,
       "memory": 256,
       "essential": true,
