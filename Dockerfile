@@ -74,6 +74,7 @@
 
 
 
+#
 # ---- Base Node ----
 FROM alpine:3.5 AS base
 
@@ -100,9 +101,10 @@ RUN npm install
 #
 # ---- Test ----
 # run linters, setup and tests
-#FROM dependencies AS test
-#COPY . .
+FROM dependencies AS test
+COPY . .
 #RUN  npm run lint && npm run setup && npm run test
+CMD npm run rest-api
 
 #
 # ---- Release ----
@@ -118,4 +120,3 @@ EXPOSE 8090
 EXPOSE 4200
 
 CMD npm run start
-CMD npm run rest-api
