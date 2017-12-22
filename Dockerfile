@@ -76,6 +76,7 @@
 
 # ---- Base Node ----
 FROM alpine:3.5 AS base
+EXPOSE 8090 4200 80
 # install node
 RUN apk add --no-cache nodejs-current tini
 # set working directory
@@ -111,6 +112,6 @@ COPY --from=dependencies /root/chat/prod_node_modules ./node_modules
 # copy app sources
 COPY . .
 # expose port and define CMD
-EXPOSE 8090 4200 80
+
 CMD npm run start
 CMD npm run rest-api
