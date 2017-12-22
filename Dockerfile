@@ -17,7 +17,7 @@
 ### STAGE 1: Build ###
 
 FROM ubuntu
-
+EXPOSE 8090 80 4200 3000
 #FROM node:8-alpine
 #
 #COPY package.json ./
