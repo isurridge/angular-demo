@@ -16,8 +16,8 @@
 
 ### STAGE 1: Build ###
 
-FROM ubuntu
-EXPOSE 8090 80 4200 3000
+#FROM ubuntu
+
 #FROM node:8-alpine
 #
 #COPY package.json ./
@@ -64,6 +64,10 @@ RUN rm -rf /usr/share/nginx/html/*
 
 ## From 'builder' stage copy over the artifacts in dist folder to default nginx public folder
 COPY --from=builder /ng-app/dist /usr/share/nginx/html
+
+
+
+EXPOSE 8090 80 4200 3000
 
 CMD ["nginx", "-g", "daemon off;"]
 CMD [ "npm", "run", "rest-api" ]
