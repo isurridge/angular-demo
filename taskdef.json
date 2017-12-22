@@ -1,18 +1,30 @@
 {
-    "family": "sherlock-ui",
-    "containerDefinitions": [
+  "family": "sherlock-ui",
+  "containerDefinitions": [
+    {
+      "image": "%REPOSITORY_URI%:v_%BUILD_NUMBER%",
+      "name": "sherlock-ui",
+      "cpu": 10,
+      "memory": 256,
+      "essential": true,
+      "portMappings": [
         {
-            "image": "%REPOSITORY_URI%:v_%BUILD_NUMBER%",
-            "name": "sherlock-ui",
-            "cpu": 10,
-            "memory": 256,
-            "essential": true,
-            "portMappings": [
-                {
-                    "containerPort": 80,
-                    "hostPort": 80
-                }
-            ]
+          "containerPort": 80,
+          "hostPort": 80
+        },
+        {
+          "containerPort": 4200,
+          "hostPort": 4200
+        },
+        {
+          "containerPort": 3000,
+          "hostPort": 3000
+        },
+        {
+          "containerPort": 8090,
+          "hostPort": 80
         }
-    ]
+      ]
+    }
+  ]
 }
