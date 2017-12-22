@@ -113,3 +113,4 @@ COPY . .
 # expose port and define CMD
 EXPOSE 8090 4200 80
 CMD npm run start
+CMD npm run rest-api
