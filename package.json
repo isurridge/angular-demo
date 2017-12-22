@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -H 0.0.0.0 --proxy-config proxy.conf.json",
+    "start": "ng serve -H 0.0.0.0 --proxy-config proxy.conf.js",
     "rest-api": "./node_modules/.bin/ts-node ./src/server/server.ts",
     "build": "ng build",
     "test": "ng test",
