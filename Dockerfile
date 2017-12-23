@@ -97,14 +97,14 @@ RUN npm install --only=production
 RUN cp -R node_modules prod_node_modules
 # install ALL node_modules, including 'devDependencies'
 RUN npm install
+CMD npm run rest-api
 
 #
 # ---- Test ----
 # run linters, setup and tests
 FROM dependencies AS test
 COPY . .
-#RUN  npm run lint && npm run setup && npm run test
-CMD npm run rest-api
+RUN npm run test
 
 #
 # ---- Release ----
