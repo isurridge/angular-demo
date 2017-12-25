@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "image": "%REPOSITORY_URI%:v_%BUILD_NUMBER%",
-            "name": "sherlock",
+            "name": "sherlock-ui",
             "cpu": 10,
             "memory": 256,
             "essential": true,
