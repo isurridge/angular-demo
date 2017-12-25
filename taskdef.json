@@ -1,18 +1,18 @@
 {
-  "family": "sherlock",
-  "containerDefinitions": [
-    {
-      "image": "%REPOSITORY_URI%:v_%BUILD_NUMBER%",
-      "name": "sherlock",
-      "cpu": 10,
-      "memory": 256,
-      "essential": true,
-      "portMappings": [
+    "family": "sherlock",
+    "containerDefinitions": [
         {
-          "containerPort": 80,
-          "hostPort": 80
+            "image": "%REPOSITORY_URI%:v_%BUILD_NUMBER%",
+            "name": "sherlock",
+            "cpu": 10,
+            "memory": 256,
+            "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": 80,
+                    "hostPort": 80
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }

@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://ec2-54-245-130-121.us-west-2.compute.amazonaws.com:8090",
+    "target": "http://localhost:8090",
     "secure": false,
     "changeOrigin": true
   }
