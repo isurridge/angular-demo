@@ -67,8 +67,7 @@ COPY --from=builder /ng-app/dist /usr/share/nginx/html
 
 
 
-#EXPOSE 8090 80 4200 3000
-
+EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 #CMD [ "npm", "run", "rest-api" ]
 
