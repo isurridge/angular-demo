@@ -102,9 +102,9 @@ CMD npm run rest-api
 #
 # ---- Test ----
 # run linters, setup and tests
-FROM dependencies AS test
-COPY . .
-RUN npm run test
+#FROM dependencies AS test
+#COPY . .
+#RUN npm run test
 
 #
 # ---- Release ----
