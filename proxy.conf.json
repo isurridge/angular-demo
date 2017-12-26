@@ -1,7 +1,11 @@
 {
-  "/api/**": {
-    "target": "http://localhost:8090",
+  "/api/*": {
+    "target": "http://127.0.0.1:8090/api",
     "secure": false,
-    "pathRewrite": {"^/api" : ""}
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "http://127.0.0.1:8090/api"
+    }
   }
 }
