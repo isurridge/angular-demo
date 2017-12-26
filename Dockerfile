@@ -115,4 +115,4 @@ COPY . .
 # expose port and define CMD
 
 
-CMD npm run start --proxy 127.0.0.1:8090
+CMD ng serve --proxy-config proxy.conf.json
