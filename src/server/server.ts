@@ -19,12 +19,12 @@ const { ALLOW_ORIGIN, ALLOW_HEADERS, ALLOW_METHODS } = configuration.CORS;
 const app: Application = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', ALLOW_ORIGIN);
-  res.header('Access-Control-Allow-Headers', ALLOW_HEADERS);
-  res.header('Access-Control-Allow-Methods', ALLOW_METHODS);
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', ALLOW_ORIGIN);
+//   res.header('Access-Control-Allow-Headers', ALLOW_HEADERS);
+//   res.header('Access-Control-Allow-Methods', ALLOW_METHODS);
+//   next();
+// });
 
 // FORMATTING ==> app.route('/api/subject/:id').get(subjectRoute);
 app.route('/api/executiveSummaryLineChart').get(executiveSummaryLineChartRoute);
