@@ -1,6 +1,6 @@
 {
-  "/api": {
-    "target": "http://54.237.241.230:8090/api",
+  "/api/*": {
+    "target": "http://localhost:8090/api",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

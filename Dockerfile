@@ -115,4 +115,4 @@ COPY . .
 # expose port and define CMD
 
 
-CMD ng serve --proxy-config proxy.conf.json
+CMD ng serve --proxy-config proxy.conf.json --host 0.0.0.0
