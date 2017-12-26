@@ -115,4 +115,4 @@ COPY . .
 # expose port and define CMD
 
 
-CMD npm run start
+CMD npm run start --proxy-config proxy.conf.json
