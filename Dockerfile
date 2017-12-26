@@ -96,6 +96,7 @@ RUN npm install
 RUN cp -R node_modules prod_node_modules
 # install ALL node_modules, including 'devDependencies'
 RUN npm install
+DEBUG=*
 CMD npm run rest-api
 
 #
@@ -115,4 +116,4 @@ COPY . .
 # expose port and define CMD
 
 
-CMD npm run start --proxy-config proxy.conf.json
+CMD npm run start --proxy 127.0.0.1:8090
