@@ -37,7 +37,7 @@ switch (environment) {
     };
 
     configuration.CORS = {
-      ALLOW_ORIGIN: 'http://localhost:8090',
+      ALLOW_ORIGIN: '*',
       ALLOW_HEADERS: 'Origin, X-Requested-With, Content-type, Accept',
       ALLOW_METHODS: 'POST, PUT, GET, PATCH, DELETE'
     };
