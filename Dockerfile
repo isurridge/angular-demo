@@ -49,7 +49,7 @@ WORKDIR /ng-app
 COPY . .
 
 ## Build the angular app in production mode and store the artifacts in dist folder
-RUN $(npm bin)/ng build --prod --build-optimizer --proxy-config proxy.conf.json
+RUN $(npm bin)/ng serve --proxy-config proxy.conf.json
 
 
 ### STAGE 2: Setup ###
