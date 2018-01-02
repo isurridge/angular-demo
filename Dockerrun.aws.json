@@ -1,0 +1,40 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [],
+  "containerDefinitions": [
+    {
+      "name": "backend-app",
+      "image": "495500869688.dkr.ecr.us-east-1.amazonaws.com/backend-app:<BACKEND_TAG>",
+      "essential": true,
+      "memoryReservation": 200,
+      "portMappings": [
+        {
+          "hostPort": 8080,
+          "containerPort": 8080
+        }
+      ],
+      "links": [],
+      "environment": [
+        {
+          "name": "SPRING_PROFILES_ACTIVE",
+          "value": "development"
+        }
+      ],
+      "mountPoints": []
+    },
+    {
+      "name": "frontend-app",
+      "image": "495500869688.dkr.ecr.us-east-1.amazonaws.com/frontend-app:<FRONTEND_TAG>",
+      "essential": true,
+      "memoryReservation": 200,
+      "portMappings": [
+        {
+          "hostPort": 9090,
+          "containerPort": 9090
+        }
+      ],
+      "links": [],
+      "mountPoints": []
+    }
+  ]
+}
