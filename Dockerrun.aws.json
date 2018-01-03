@@ -1,40 +1,73 @@
 {
   "AWSEBDockerrunVersion": 2,
-  "volumes": [],
-  "containerDefinitions": [
+  "volumes": [
     {
-      "name": "backend-app",
-      "image": "495500869688.dkr.ecr.us-east-1.amazonaws.com/backend-app:<BACKEND_TAG>",
-      "essential": true,
-      "memoryReservation": 200,
-      "portMappings": [
-        {
-          "hostPort": 8080,
-          "containerPort": 8080
-        }
-      ],
-      "links": [],
-      "environment": [
-        {
-          "name": "SPRING_PROFILES_ACTIVE",
-          "value": "development"
-        }
-      ],
-      "mountPoints": []
+      "name": "nodejs-application",
+      "host": {
+        "sourcePath": "/var/app/current/nodejs-application"
+      }
     },
     {
-      "name": "frontend-app",
-      "image": "495500869688.dkr.ecr.us-east-1.amazonaws.com/frontend-app:<FRONTEND_TAG>",
-      "essential": true,
-      "memoryReservation": 200,
-      "portMappings": [
+      "name": "nginx-proxy-conf",
+      "host": {
+        "sourcePath": "/var/app/current/proxy/conf.d"
+      }
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "nodejs-application",
+      "image": "495500869688.dkr.ecr.us-east-1.amazonaws.com/sherlock:beta",
+      "environment": [
         {
-          "hostPort": 9090,
-          "containerPort": 9090
+          "name": "NODE_ENV",
+          "value": "beta"
+        },
+        {
+          "name": "PORT",
+          "value": 2999
         }
       ],
-      "links": [],
-      "mountPoints": []
+      "essential": true,
+      "memory": 512,
+      "mountPoints": [
+        {
+          "sourceVolume": "awseb-logs-nodejs-application-beta",
+          "containerPath": "/var/log/nodejs-application-beta"
+        }
+      ],
+      "portMappings": [
+        {
+          "hostPort": 2999,
+          "containerPort": 2999
+        }
+      ]
+    },
+    {
+      "name": "nginx-proxy",
+      "image": "nginx",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": [
+        "nodejs-application"
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "awseb-logs-nginx-proxy",
+          "containerPath": "/var/log/nginx"
+        },
+        {
+          "sourceVolume": "nginx-proxy-conf",
+          "containerPath": "/etc/nginx/conf.d",
+          "readOnly": true
+        }
+      ]
     }
   ]
 }
