@@ -1,21 +1,7 @@
 {
-
   "AWSEBDockerrunVersion": "1",
+  "Logging": "/tmp/sample-app",
   "Image": {
-    "Name": "495500869688.dkr.ecr.us-east-1.amazonaws.com/sherlock:latest",
-    "Update": "true"
-  },
-  "Ports": [
-    {
-      "ContainerPort": "80"
-    }
-  ],
-
-  "Volumes": [
-    {
-      "HostDirectory": "/var/app/current",
-      "ContainerDirectory": "/usr/src/app"
-    }
-  ]
-
+    "Update": "false"
+  }
 }
