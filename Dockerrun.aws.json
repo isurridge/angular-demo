@@ -1,7 +1,10 @@
 {
 
   "AWSEBDockerrunVersion": "1",
-
+  "Image": {
+    "Name": "495500869688.dkr.ecr.us-east-1.amazonaws.com/sherlock:latest",
+    "Update": "true"
+  },
   "Ports": [
     {
       "ContainerPort": "4200"
