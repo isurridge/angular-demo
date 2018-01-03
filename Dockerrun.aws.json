@@ -1,73 +1,18 @@
 {
-  "AWSEBDockerrunVersion": 2,
-  "volumes": [
+
+  "AWSEBDockerrunVersion": "1",
+
+  "Ports": [
     {
-      "name": "nodejs-application",
-      "host": {
-        "sourcePath": "/var/app/current/nodejs-application"
-      }
-    },
-    {
-      "name": "nginx-proxy-conf",
-      "host": {
-        "sourcePath": "/var/app/current/proxy/conf.d"
-      }
+      "ContainerPort": "4200"
     }
   ],
-  "containerDefinitions": [
+
+  "Volumes": [
     {
-      "name": "nodejs-application",
-      "image": "495500869688.dkr.ecr.us-east-1.amazonaws.com/sherlock:beta",
-      "environment": [
-        {
-          "name": "NODE_ENV",
-          "value": "beta"
-        },
-        {
-          "name": "PORT",
-          "value": 2999
-        }
-      ],
-      "essential": true,
-      "memory": 512,
-      "mountPoints": [
-        {
-          "sourceVolume": "awseb-logs-nodejs-application-beta",
-          "containerPath": "/var/log/nodejs-application-beta"
-        }
-      ],
-      "portMappings": [
-        {
-          "hostPort": 2999,
-          "containerPort": 2999
-        }
-      ]
-    },
-    {
-      "name": "nginx-proxy",
-      "image": "nginx",
-      "essential": true,
-      "memory": 128,
-      "portMappings": [
-        {
-          "hostPort": 80,
-          "containerPort": 80
-        }
-      ],
-      "links": [
-        "nodejs-application"
-      ],
-      "mountPoints": [
-        {
-          "sourceVolume": "awseb-logs-nginx-proxy",
-          "containerPath": "/var/log/nginx"
-        },
-        {
-          "sourceVolume": "nginx-proxy-conf",
-          "containerPath": "/etc/nginx/conf.d",
-          "readOnly": true
-        }
-      ]
+      "HostDirectory": "/var/app/current",
+      "ContainerDirectory": "/usr/src/app"
     }
   ]
+
 }
